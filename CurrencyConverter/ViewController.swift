@@ -39,14 +39,23 @@ class ViewController: UIViewController {
             alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)
             }
+            
             // 2. step
             else{
                 if data != nil {
-                    <#code#>
+                    do {
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
+                        DispatchQueue.main.async {print(jsonResponse)}
+                    } catch {
+                        print("error")
+                    }
+                  
                 }
             }
         }
-        
+        task.resume()
+        // start to task for all things task.resume() // start to task for all things
     }
+    
 }
 
